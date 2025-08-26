@@ -1,4 +1,4 @@
-# Web-Have-Fun-
+# Web-Have-Fun
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -93,7 +93,11 @@
 </head>
 <body>
   <h1>🎮 Catch The Emoji 🎮</h1>
-  <div id="info">Score: <span id="score">0</span> | Lives: <span id="lives">3</span></div>
+  <div id="info">
+    Score: <span id="score">0</span> | 
+    Lives: <span id="lives">3</span> | 
+    High Score: <span id="highScore">0</span>
+  </div>
   <canvas id="gameCanvas" width="400" height="600"></canvas>
   <div id="gameOver">
     <p id="finalScore"></p>
@@ -108,6 +112,7 @@
     const ctx = canvas.getContext("2d");
     const scoreEl = document.getElementById("score");
     const livesEl = document.getElementById("lives");
+    const highScoreEl = document.getElementById("highScore");
     const gameOverScreen = document.getElementById("gameOver");
     const finalScore = document.getElementById("finalScore");
     const catchSound = document.getElementById("catchSound");
@@ -119,6 +124,10 @@
     let lives = 3;
     let speed = 2;
     let gameRunning = true;
+
+    // Load high score dari localStorage
+    let highScore = localStorage.getItem("emojiHighScore") || 0;
+    highScoreEl.textContent = highScore;
 
     function drawBasket() {
       ctx.fillStyle = "#00a859";
@@ -185,7 +194,19 @@
 
     function endGame() {
       gameRunning = false;
-      finalScore.textContent = "Game Over! Your score: " + score;
+
+      // Update High Score
+      if (score > highScore) {
+        highScore = score;
+        localStorage.setItem("emojiHighScore", highScore);
+      }
+
+      finalScore.innerHTML = `
+        Game Over! <br>
+        Your Score: ${score} <br>
+        High Score: ${highScore}
+      `;
+      highScoreEl.textContent = highScore;
       gameOverScreen.style.display = "block";
     }
 
