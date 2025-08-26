@@ -264,5 +264,20 @@
     }
     setInterval(createEmojiRain, 700);
   </script>
+  <!-- BACKSOUND -->
+  <audio id="Maneh.mp3" autoplay loop>
+    <source src="Maneh.mp3" type="audio/mpeg">
+
+  </audio>
+
+  <script>
+    // Kadang autoplay diblokir, jadi musik jalan setelah klik pertama
+    document.addEventListener("click", () => {
+      const music = document.getElementById("bgMusic");
+      if (music.paused) {
+        music.play();
+      }
+    });
+  </script>
 </body>
 </html>
