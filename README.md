@@ -266,20 +266,56 @@
         </script>
 
         <!-- BACKSOUND -->
-  <audio id="Maneh.mp3" autoplay loop>
-    <source src="Maneh.mp3" type="audio/mpeg">
-    Browser kamu tidak mendukung audio.
-  </audio>
+<audio id="Maneh.mp3" autoplay loop>
+  <source src="Maneh.mp3" type="audio/mpeg">
+  Browser kamu tidak mendukung audio.
+</audio>
 
-  <script>
-    // Kadang autoplay diblokir, jadi musik jalan setelah klik pertama
-    document.addEventListener("click", () => {
-      const music = document.getElementById("bgMusic");
-      if (music.paused) {
-        music.play();
-      }
-    });
-  </script>
+<!-- Tombol Play/Pause -->
+<button id="musicbtn">⏸ Pause Music</button>
+
+<script>
+  const music = document.getElementById("bgMusic");
+  const musicBtn = document.getElementById("musicBtn");
+
+  // Pastikan musik bisa diputar setelah klik pertama (untuk bypass autoplay block)
+  document.addEventListener("click", () => {
+    if (music.paused) {
+      music.play();
+    }
+  }, { once: true });
+
+  // Toggle tombol Play/Pause
+  musicBtn.addEventListener("click", () => {
+    if (music.paused) {
+      music.play();
+      musicBtn.textContent = "⏸ Pause Music";
+    } else {
+      music.pause();
+      musicBtn.textContent = "▶ Play Music";
+    }
+  });
+</script>
+
+<style>
+  #musicBtn {
+    position: fixed;
+    bottom: 15px;
+    right: 15px;
+    padding: 10px 20px;
+    font-size: 16px;
+    border: none;
+    border-radius: 10px;
+    background: linear-gradient(135deg, #00a859, #1abc9c);
+    color: white;
+    cursor: pointer;
+    box-shadow: 0px 4px 6px rgba(0,0,0,0.3);
+  }
+  #musicBtn:hover {
+    transform: scale(1.1);
+    background: linear-gradient(135deg, #1abc9c, #00a859);
+  }
+</style>
 </body>
 </html>
 </body>
