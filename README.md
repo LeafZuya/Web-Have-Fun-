@@ -277,8 +277,8 @@
       if (music.paused) {
         music.play();
       }
-    });
-    <p>Web Ini Aslinya ada Backsound/Music,tapi cuma bisa terdengar saat membuka halaman ini menggunakan Koneksi Wi-Fi,Bukan Data Seluler 😅🤫</p>
+    })}
   </script>
+  <p>Web Ini Aslinya ada Backsound/Music,tapi cuma bisa terdengar saat membuka halaman ini menggunakan Koneksi Wi-Fi,Bukan Data Seluler 😅🤫</p>
 </body>
 </html>
