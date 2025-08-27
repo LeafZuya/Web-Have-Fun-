@@ -263,11 +263,12 @@
       setTimeout(() => emoji.remove(), 5000);
     }
     setInterval(createEmojiRain, 700);
-  </script>
-  <!-- BACKSOUND -->
+        </script>
+
+        <!-- BACKSOUND -->
   <audio id="Maneh.mp3" autoplay loop>
     <source src="Maneh.mp3" type="audio/mpeg">
-
+    Browser kamu tidak mendukung audio.
   </audio>
 
   <script>
@@ -279,5 +280,7 @@
       }
     });
   </script>
+</body>
+</html>
 </body>
 </html>
